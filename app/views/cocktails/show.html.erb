@@ -1,18 +1,27 @@
-<div class="container">
 
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1><%= @cocktail.name %></h1>
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <th scope="row"> Name</th>
-            <td><%= @cocktail.name %></td>
-          </tr>
 
 
-      <%= link_to "See all cocktail", cocktails_path %>
-    </div>
-  </div>
-</div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+                  <%= simple_form_for [@cocktail, @dose] do |f| %>s
+                     <%= f.association :ingredient %>
+                     %= f.input :description %>
+                    <%= f.submit class: 'btn btn-primary' %>
+                  <% end %>
+              </div>
+            </div>
+
+              <h2> La recette :</h2>
+
+             <% @cocktail.doses.each do |dose| %>
+                        <p><%= dose.description %></p>
+                        <p><%= dose.ingredient.name %></p>
+             <% end %>
+
+
+
+
+ <%= link_to "Back to cocktails" , cocktails_path, class: 'btn btn-primary' %>
