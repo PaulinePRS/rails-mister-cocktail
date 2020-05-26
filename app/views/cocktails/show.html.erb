@@ -5,6 +5,7 @@
              <% @cocktail.doses.each do |dose| %>
                         <p><%= dose.description %></p>
                         <p><%= dose.ingredient.name %></p>
+                        <%= cl_image_tag @dose.photo.key, height: 300, width: 400, crop: :fill %>
              <% end %>
     </div>
 
@@ -15,6 +16,7 @@
            <%= simple_form_for [@cocktail, @dose] do |f| %>
                 <%= f.association :ingredient %>
                 <%= f.input :description %>
+                 <%= f.input :photo, as: :file %>
                 <%= f.submit class: 'btn btn-primary' %>
             <% end %>
           </div>
