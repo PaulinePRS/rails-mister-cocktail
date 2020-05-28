@@ -18,3 +18,7 @@ Ingredient.create(name: "Vodka")
 Ingredient.create(name: "Gin")
 Ingredient.create(name: "Concombre")
 Ingredient.create(name: "Eau Gazeuse")
+
+
+
+
